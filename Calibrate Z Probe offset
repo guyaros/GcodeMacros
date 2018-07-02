@@ -1,0 +1,12 @@
+; Calibrate Z-Probe Offset Wizard
+M291 P"Move the nozzle until it touches a piece of paper, with known thickness" S2 Z1
+M291 P"Set this height as the paper thickness (Default Z=0.3)" S2
+G92 Z0.3;
+M291 P"Move the print head up perhaps a centimeter" S2
+G91
+G1 Z8 F600;
+M291 P"Run a single probe without updating the printer's coordinates: G30 S-1" S2
+G30 S-1;
+M291 P"This is the value to put in your G31 command" S2
+G91;
+G1 Z10;
